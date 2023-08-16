@@ -39,6 +39,9 @@ sayHello2() {
 sayHello
 sayHello2
 
+# Displaying the result of running something: run inside $()
+echo $(ifconfig)
+
 # Conditionals
 host=$1
 test=$( ping -c 1 $host | grep icmp | wc -l )
