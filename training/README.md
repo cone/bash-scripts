@@ -26,6 +26,12 @@ In order to give the current user read, write and execution permissions, we run 
 chmod 744 test.sh
 ```
 
+or
+
+```
+chmod +x test.sh
+```
+
 7 means read, write and execution. 4 means only read and execution.
 
 Number	Permission Type	Symbol
