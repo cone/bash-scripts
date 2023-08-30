@@ -1,5 +1,19 @@
 #!/bin/zsh
 
+: '
+multi
+line
+comment'
+
+# If we want to show any comments in the output
+# we can use a heredoc delimiter. We can use any name
+# for the delimiter
+cat << mycustomname
+Hello, this is my
+comment that will be shown
+in the output
+mycustomname
+
 echo "Hello"
 sleep 2
 echo "I slept for two seconds!"
@@ -43,17 +57,53 @@ sayHello2
 echo $(ifconfig)
 
 # Conditionals
+# not equal: -ne, equal: -eq, lower than: -lt, greater than: -gt
 host=$1
 test=$( ping -c 1 $host | grep icmp | wc -l )
 if [ $test -eq 0 ]
 then
   echo "The host doesn't accept pings"
+elif [ $test -eq 1 ]; then
+  echo "The host replied back! (1)"
 else
   echo "The host replied back!"
 fi
+# if we want to use <,>,==,!=,<=.>=, etc. We need to use (()) instead of []
+# e.g. "if (( $test == 0 ))"
+# we can also use "and" and "or" operators, several ways we can do that:
+#   "if [ $test -gt 0 ] && [ $test -lt 10 ]" using OR "if [ $test -gt 0 ] || [ $test -lt 10 ]"
+#   "if [[ $test -gt 0 && $test -lt 10 ]]" using OR "if [[ $test -gt 0 || $test -lt 10 ]]"
+#   "if [ $test -gt 0 -a $test -lt 10 ]" using OR "if [ $test -gt 0 -o $test -lt 10 ]"
+
+# Case statement
+COUNTRY="Mexico"
+
+case $COUNTRY in
+
+  Mexico)
+  echo -n "It's Mexico!"
+  ;;
+
+  Cuba)
+  echo -n "It's Cuba!"
+  ;;
+
+  *)
+  echo -n "It's Other!"
+  ;;
+esac
 
 # Cicles
 while read line; do
   response=$(curl --write-out "%{http_code}\n" --silent --output /dev/null "$line")
   echo $line: $response
 done < test.txt
+
+# Redirect to file
+echo "Hello" > generated.txt
+
+# Open editor. Ctrl + d to save ane exit
+# this replaces all the text
+cat > generated.txt
+# this appends to any existing content
+cat >> generated.txt
