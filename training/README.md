@@ -85,3 +85,17 @@ We just reference the file, e.g. `./test.sh `.
 ## Variables
 
 They are created like `varname="value"`. If we add a space after the variable name then it won't be recognized as a variable e.g. `varname = "value"` is wrong.
+
+## Exit status
+
+By convention an exit status of `0` means success, and non-zero return status means failure.
+
+In order to print the exit status of the last executed command we use `$?`. For instance:
+
+```
+true
+echo $? # echoes 0
+false
+echo $? # echoes 1
+```
+
