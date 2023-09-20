@@ -28,6 +28,14 @@ while read line; do
   echo $line: $response
 done < test.txt
 
+# reading from user input
+while read line
+do
+  echo "$line"
+done
+# in the last line we can specify the origin like: 'done < "${1:-/dev/stdin}"'' and
+# if we pass a file path as an argument like "./loops.sh ./test.txt" it will print the content of the file!
+
 # based on an increment
 number=1
 while [ $number -lt 10 ]
