@@ -40,18 +40,6 @@ echo ${args[0]} ${args[1]} ${args[2]} # => hello world
 while read line
 do
   echo "$line"
-done < "${1:-/dev/stdin}"
+done < "${1:-/dev/stdin}" # we specify standard input as the source
 # if we pass a file path as an argument like "./loops.sh ./test.txt"
 # it will print the content of the file!
-
-# Displaying the result of running something: run inside $()
-echo $(ifconfig)
-
-# Redirect to file
-echo "Hello" > generated.txt
-
-# Open editor. Ctrl + d to save ane exit
-# this replaces all the text
-cat > generated.txt
-# this appends to any existing content
-cat >> generated.txt
