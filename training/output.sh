@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Displaying the result of running something: echo the result of
 # running a command in a subshell $()
 echo $(ifconfig)
