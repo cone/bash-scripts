@@ -2,12 +2,34 @@
 
 # Functions
 function sayHello {
-  echo "Say $arg1"
+  echo "Say: $1"
 }
 # Or
 sayHello2() {
-  echo "Say $arg1 2"
+  echo $1 $2
 }
 
-sayHello
-sayHello2
+sayHello 'Hello world'
+sayHello2 Hello world!
+
+# Scopes
+# It seems zsh considers the variable global even if declare from function.
+# If we need a local variable, we should use teh reserved word "local"
+function localScope {
+  global='world'
+  local localvar='Bye'
+}
+
+global='hello'
+localvar='Hi'
+echo $global
+echo $localvar
+
+localScope
+echo $global
+echo $localvar
+# => hello
+# => Hi
+# => world
+# => Hi
+
