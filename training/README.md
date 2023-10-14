@@ -99,3 +99,7 @@ false
 echo $? # echoes 1
 ```
 
+## IFS
+
+This variable indicates how the words are separated on the command line. The IFS variable is, normally or by default, a white space (' '). The IFS variable is used as a word separator (token) for the for command.
+
