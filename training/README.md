@@ -103,3 +103,31 @@ echo $? # echoes 1
 
 This variable indicates how the words are separated on the command line. The IFS variable is, normally or by default, a white space (' '). The IFS variable is used as a word separator (token) for the for command.
 
+## Debugging scripts
+
+There are three ways to debug the scripts.
+
+The first one is running the script with the "-x" flag like: `zsh -x ./test.sh`. That will run the script showing the result of each line, one by one.
+
+The second one is by adding the "-x" falg to the script header located at the top of the script file, like: `#!/bin/zsh -x`.
+
+The third option is to enclose the part of the script we want to debug between the `set -x` and `set +x` commands. For instance:
+
+```bash
+# Debugging starts here
+set -x
+
+myvar="Hello"
+
+if [ "$myvar"=="Hello" ]; then
+  echo "The variable is 'Hello'"
+else
+  echo "Nope"
+fi
+
+# Debugging ends here
+set +x
+
+# This won't be includded in the debugging
+echo "The script has finished.."
+```
