@@ -45,18 +45,12 @@ In the output of those commands, the permissions are the 10 leftmost characters 
 
 Here's what each position means:
 
-------------------------------------------------------------------------
-| Position     Meaning                                                 |
-|----------------------------------------------------------------------|
-|    1     | file type: - (file), d (directory), l (symbolic link),    |
-|          | p (named pipe), c (character device), b (block device)    |
-|----------------------------------------------------------------------|
+| Position |    Meaning                                                |
+|----------|-----------------------------------------------------------|
+|    1     | file type: - (file), d (directory), l (symbolic link), p (named pipe), c (character device), b (block device)                          |
 |   2-4    | Read, write and execute permissions for the file's owner  |
-|----------------------------------------------------------------------|
 |   5-7    | Read, write and execute permissions for the file's group  |
-|----------------------------------------------------------------------|
 |   8-10   | Read, write and execute permissions for all other users   |
-------------------------------------------------------------------------
 
 ### Assigning permissions
 
@@ -76,25 +70,16 @@ The first space (7) is for the current user. The seconds space (4) is for the us
 
 Here's what each number means:
 
-------------------------------------------------------------
-| Number       Permission          Type	Symbol             |
-|----------------------------------------------------------|
+| Number   |   Permission             |   Type	Symbol     |
+|----------|--------------------------|--------------------|
 |    0     |   No Permission          |        -           |
-|----------------------------------------------------------|
 |    1     |   Execute                |        -x          |
-|----------------------------------------------------------|
 |    2     |   Write                  |        -w-         |
-|----------------------------------------------------------|
 |    3     |   Execute + Write        |        -wx         |
-|----------------------------------------------------------|
 |    4     |   Read                   |        r-          |
-|----------------------------------------------------------|
 |    5     |   Read + Execute         |        r-x         |
-|----------------------------------------------------------|
 |    6     |   Read + Write           |        rw-         |
-|----------------------------------------------------------|
 |    7     |   Read + Write + Execute |        rwx         |
-------------------------------------------------------------
 
 We can se the given permissions by running `ls -l`. e.g:
 
