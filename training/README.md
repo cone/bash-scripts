@@ -1,6 +1,6 @@
 # Bash Scripting
 
-## Shell types
+## Shell Types
 
 There are several like bash, ksh, zsh, etc.
 
@@ -21,6 +21,19 @@ zsh test.sh
 ## Running an executable script file
 
 We just reference the file, e.g. `./test.sh `.
+
+## Shell Features
+
+### See who has logged in
+
+We can use the `who` command to see the history of who has logged into the computer:
+
+```
+> who
+myuser  console      Sep 28 09:54
+myuser  ttys000      Oct 26 12:24
+myuser  ttys001      Oct  3 17:49
+```
 
 ## Variables
 
