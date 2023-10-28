@@ -1,9 +1,5 @@
 # Bash Scripting
 
-## Shell Types
-
-There are several like bash, ksh, zsh, etc.
-
 ## Shebang
 
 We use it to specify the shell we will use to run the script.
@@ -22,39 +18,9 @@ zsh test.sh
 
 We just reference the file, e.g. `./test.sh `.
 
-## Shell Features
-
-### See who has logged in
-
-We can use the `who` command to see the history of who has logged into the computer:
-
-```
-> who
-myuser  console      Sep 28 09:54
-myuser  ttys000      Oct 26 12:24
-myuser  ttys001      Oct  3 17:49
-```
-
 ## Variables
 
 They are created like `varname="value"`. If we add a space after the variable name then it won't be recognized as a variable e.g. `varname = "value"` is wrong.
-
-## Exit status
-
-By convention an exit status of `0` means success, and non-zero return status means failure.
-
-In order to print the exit status of the last executed command we use `$?`. For instance:
-
-```
-true
-echo $? # echoes 0
-false
-echo $? # echoes 1
-```
-
-## IFS
-
-This variable indicates how the words are separated on the command line. The IFS variable is, normally or by default, a white space (' '). The IFS variable is used as a word separator (token) for the for command.
 
 ## Debugging scripts
 
