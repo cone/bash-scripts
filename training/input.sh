@@ -43,3 +43,13 @@ do
 done < "${1:-/dev/stdin}" # we specify standard input as the source
 # if we pass a file path as an argument like "./loops.sh ./test.txt"
 # it will print the content of the file!
+
+# reading from user input
+while read $input1 $input2
+do
+  echo $input1 $input2
+done
+# if we specify more that one word, for instance: one two three
+# "one" will be stored in $input1 and the rest ("two three") in $input2.
+# If we need the three value to be stored ins separate variables, we would
+# need to create a third variable

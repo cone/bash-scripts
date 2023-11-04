@@ -33,3 +33,18 @@ echo "${str:l}"
 echo "${str2:u}"
 # capitalize
 echo "${(C)str1}"
+
+# We wrap in double quotes to prevent issues with blank spaces
+# and also prevent wildcard expansion. For that reason, many
+# developers wrap variables in double quotes e.g. arr=("$@")
+arr=("c*" "utils" "filesystem")
+echo ${arr[@]}
+# => c* utils filesystem
+echo "a{z,u,l}"
+# => a{z,u,l}
+# without wrapping in double quotes:
+arr=(c* utils filesystem)
+echo ${arr[@]}
+# => commands comments.sh conditionals.sh utils filesystem
+echo a{z,u,l}
+# => az au al
