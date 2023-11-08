@@ -1,12 +1,5 @@
 #!/bin/zsh
 
-echo "Hello"
-sleep 2
-echo "I slept for two seconds!"
-MyVar="This is my variable"
-echo MyVar # prints "MyVar"
-echo "The value of my variable is: ${MyVar}"
-
 # Ask for input
 echo "What's your name?"
 read myvar
@@ -15,10 +8,6 @@ echo "Hi ${myvar}"
 # We can use any of the commands we use in the console
 pwd
 ls -a
-
-# We can avoid the carriage return when using "echo"
-echo -n "You are the user: "
-whoami
 
 # Argument pass: ./test.sh hello world
 arg1=$1

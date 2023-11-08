@@ -17,21 +17,3 @@ fi
 #   "if [ $test -gt 0 ] && [ $test -lt 10 ]" using OR "if [ $test -gt 0 ] || [ $test -lt 10 ]"
 #   "if [[ $test -gt 0 && $test -lt 10 ]]" using OR "if [[ $test -gt 0 || $test -lt 10 ]]"
 #   "if [ $test -gt 0 -a $test -lt 10 ]" using OR "if [ $test -gt 0 -o $test -lt 10 ]"
-
-# Case statement
-COUNTRY="Mexico"
-
-case $COUNTRY in
-
-  Mexico)
-  echo -n "It's Mexico!"
-  ;;
-
-  Cuba)
-  echo -n "It's Cuba!"
-  ;;
-
-  *)
-  echo -n "It's Other!"
-  ;;
-esac

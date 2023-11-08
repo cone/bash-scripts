@@ -1,11 +1,5 @@
 #!/bin/zsh
 
-# Create file
-touch myfile
-
-# remove file
-rm myfile
-
 # Write to file replacing all text
 echo "Some text" > myfile
 # this appends to any existing content
