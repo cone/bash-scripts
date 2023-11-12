@@ -61,6 +61,7 @@ If we need to use them, they must be given literally. Some examples:
 |    [set]     | Any single character in the give set, most commonly a sequence of characters, like [aeiouAEIOU] for all vowels, or a range with a dash like [A-Z] for all capital letters |
 |    [^set]    | Any single character NOT in the given set, such as [^0-9] to mean any nondigit |
 |    [!set]    | same as [^set] |
+| [[:class:]]  | Matches according to these POSIX classes: alnum, alpha, ascii, blank, cntrl, digit, graph, lower, print, punct, space |
 
 ## Built in commands
 

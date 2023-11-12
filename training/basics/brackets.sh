@@ -9,6 +9,10 @@
 pwd
 (cd ..)
 pwd # no change in the current directory because "cd .." ran in a subshell
+# we can feed the result of the sub-shell to other commands:
+(echo a; echo b;) | sort
+# => a
+# => b
 
 # we can use them to build arrays
 month=("Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec")
@@ -61,6 +65,8 @@ sort -nr -k 5 <( ls -l /bin ) <( ls -l /usr/bin ) <( ls -l /sbin )
 # Behind the scenes, the <( stuff ) actually outputs the name of a 
 # temporary file (unnamed pipe file) for the sort command to use.
 echo <( ls -l /bin ) # returns something like '/dev/fd/11' which is the temporary file
+# It works the other way around too ">(command)"
+ls -l /bin >(sort -nr -k 5)
 
 # Write to a file replacing all content if the file already exists
 echo "Hello" > test_file.txt
@@ -78,6 +84,8 @@ mycustomname
 # {…} CURLY BRACKETS ---------------------------------------------------
 
 # We can use them to group the output from several commands into one big blob.
+# Similar to using single parenthesis "()" but sharing the current environment.
+# Surrownding spaces and semicolons are mandatory.
 # For instance, in the following example, without the curly brackets, only the
 # word "World!" would be saved to the file
 { echo "Hello "; echo "World!"; } > file.txt # Saves "Hello /nWorld!"
