@@ -2,14 +2,28 @@
 
 # Declaration
 arr=('one' 'two' 'three')
+# declare an empty array
+emptyarr=()
+
+# Append items
+emptyarr=(${emptyarr[@]} "New")
+# append values stored in variables (we need to expand the values)
+temp="Item"
+emptyarr=(${emptyarr[@]} ${temp})
 
 # Access of a value at a specific index
 echo ${arr[1]}
 # => one
 
-# Access all values
+# Print all values
 echo ${arr[@]}
 # => one two three
+
+# Iterate all values
+for value in "${arr[@]}"
+do
+  echo "The value is: $value"
+done
 
 # Get array length
 echo ${#arr}

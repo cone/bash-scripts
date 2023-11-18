@@ -33,6 +33,9 @@ echo "${str:l}"
 echo "${str2:u}"
 # capitalize
 echo "${(C)str1}"
+# remove blank spaces
+echo "Hello world" | tr -d '[:blank:]'
+# => Helloworld
 
 # We wrap in double quotes to prevent issues with blank spaces
 # and also prevent wildcard expansion. For that reason, many
