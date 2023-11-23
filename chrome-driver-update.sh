@@ -11,14 +11,14 @@ majorVersions=$(echo "${allVersions}" | sed "s/\.[0-9]*//g" | sort -u)
 
 versionsArray=()
 while read; do
-    versionsArray+=( "$REPLY" )
+  versionsArray+=( "$REPLY" )
 done < <( echo "${majorVersions}" )
 
 echo 'Which major chromedriver version do you wish to install?'
 select version in ${versionsArray[@]};
 do
-	echo "$version was selected ($REPLY)"
-	break;
+  echo "$version was selected ($REPLY)"
+  break;
 done
 
 if [[ "$version" == "" ]]
