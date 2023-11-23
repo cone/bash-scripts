@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+cd /Users/carlosgutierrez/Projects/bash-scripts
 source file-system-helpers.sh
 
 echo 'Fetching chrome driver versions...'
@@ -41,7 +42,7 @@ echo "Expanding $file_zip..."
 unzip -qq $file_zip || exit 1
 
 echo "Moving $file_name..."
-cDriverLocation=$( which chromedriver )
+cDriverLocation=$( which chromedriver ) || cDriverLocation="/usr/local/bin/chromedriver"
 mv -f $file_folder/$file_name $cDriverLocation
 
 remove_object $file_zip
