@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-cd /Users/carlosgutierrez/Projects/bash-scripts
+cd $MY_SCRIPTS_HOME # Needed in order to be able to load "file-system-helpers.sh"
 source file-system-helpers.sh
 
 echo 'Fetching chrome driver versions...'
