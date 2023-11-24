@@ -45,3 +45,16 @@ echo $1 $2 $3 $4 $5 $6 $7 $8 $9 $10
 | $_ | Expands to the last argument of the previous command that you executed in your terminal. |
 
 More info [here](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html) and [here](https://linuxhint.com/dollar-underscore-bash/).
+
+## Parameter expansion
+
+When expanding parameters using `${}`, we can pass wome extra flags to change the behavior in some circunstances. For instance, if the variable that we are trying to expand is unset or empty.
+
+| Parameter expansion | unset var | var="" | var="gnu" |
+|---------------------|-----------|--------|-----------|
+| ${var-default} | default | - | gnu |
+| ${var:-default} | default | default | gnu |
+| ${var+alternate} | - | alternate | alternate |
+| ${var:+alternate} | - | - | alternate |
+| ${var?error} | error | - | gnu |
+| ${var:?error} | error | error | gnu |

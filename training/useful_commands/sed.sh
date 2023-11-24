@@ -1,5 +1,13 @@
 #!/bin/zsh
 
+# The sed command is useful to replace text
+# > sed 's<separator><replaced-text><separator><replacing-text><separator>'
+
+# We can use any symbol as separator, we just need to add it before the initial "s"
+# For instance, we can use "|":
+# > sed 's|<replaced-text>|<replacing-text>|'
+# Whowever the most common character is "/"
+
 # Replace 'shell' word with 'SHELL' using 's/'(substitute).
 cat README.md | sed 's/shell/SHELL/'
 # Without using the pipe convention.

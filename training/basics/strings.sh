@@ -51,3 +51,11 @@ echo ${arr[@]}
 # => commands comments.sh conditionals.sh utils filesystem
 echo a{z,u,l}
 # => az au al
+
+# We can know if a string is unset using the "-z"(zero lenght) check:
+if [[ -z ${var} ]]
+then
+  echo "var is unset"
+else
+  echo "var is set to '$var'"
+fi

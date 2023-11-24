@@ -30,4 +30,4 @@ Other checks we can do with double square brackets:
 | [[ -f file ]] | **file** is a regular file |
 | [[ -d file ]] | **file** is a directory |
 | [[ -t fd ]] | **fd** is open and refers to a terminal |
-
+| [[ -z string ]] | True if the **string** is null (an empty string) |
