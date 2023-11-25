@@ -48,6 +48,8 @@ More info [here](https://www.gnu.org/software/bash/manual/html_node/Special-Para
 
 ## Parameter expansion
 
+### Conditional parameter expansion
+
 When expanding parameters using `${}`, we can pass wome extra flags to change the behavior in some circunstances. For instance, if the variable that we are trying to expand is unset or empty.
 
 | Parameter expansion | unset var | var="" | var="gnu" |
@@ -58,3 +60,21 @@ When expanding parameters using `${}`, we can pass wome extra flags to change th
 | ${var:+alternate} | - | - | alternate |
 | ${var?error} | error | - | gnu |
 | ${var:?error} | error | error | gnu |
+
+### Substring parameter expansion
+
+| Parameter expansion | var="open source"|
+|---------------------|------------------|
+| ${var:offset}       | ${var:5} => "source" |
+| ${var:offset:length} | ${var:5:4} => "sour" |
+| ${var#pattern} | ${var#*o} => "pen source" |
+| ${var##pattern} | ${var##*o} => "urce" |
+| ${var%pattern} | ${var%e*} => "open sourc" |
+| ${var%%pattern} | ${var%%e*} => "op" |
+
+### Substitution in parameter expansion
+
+| Parameter expansion | var="free and open"|
+|---------------------|--------------------|
+| ${var/pattern/string} | ${var/[[:blank:]]/_} => "free_and open" |
+| ${var//pattern/string} | ${var//[[:blank:]]/_} => "free_and_open" |
