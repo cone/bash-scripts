@@ -6,6 +6,8 @@ arr=('one' 'two' 'three')
 emptyarr=()
 
 # Append items
+emptyarr+=( "New" )
+# another way
 emptyarr=(${emptyarr[@]} "New")
 # append values stored in variables (we need to expand the values)
 temp="Item"
