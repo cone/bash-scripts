@@ -61,6 +61,8 @@ When expanding parameters using `${}`, we can pass wome extra flags to change th
 | ${var?error} | error | - | gnu |
 | ${var:?error} | error | error | gnu |
 
+If I use `=` instead of `-` (when applicable, e.g `${var:=default}`), aside of the default value setting, it will store the value in the variable so, when accessing `$var` the value should be stored there.
+
 ### Substring parameter expansion
 
 | Parameter expansion | var="open source"|
