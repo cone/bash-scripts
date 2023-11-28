@@ -33,3 +33,6 @@ declare -r myreadonlyvar=11
 hexnum=FFF
 echo "obase=10; ibase=16; $hexnum" | bc
 # => 4095
+
+# remove variable
+unset myvar
