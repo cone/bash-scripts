@@ -78,5 +78,16 @@ If I use `=` instead of `-` (when applicable, e.g `${var:=default}`), aside of t
 
 | Parameter expansion | var="free and open"|
 |---------------------|--------------------|
-| ${var/pattern/string} | ${var/[[:blank:]]/_} => "free_and open" |
-| ${var//pattern/string} | ${var//[[:blank:]]/_} => "free_and_open" |
+| ${var/pattern/string} | ${var/[[:blank:]]/_} => "free_and open"; ${var/e?/i} => "fri and open" |
+| ${var//pattern/string} | ${var//[[:blank:]]/_} => "free_and_open"; ${var//e?/i} => "fri and opi" |
+| ${var/#pattern/string} | ${var/#f/F} => "Free and open" |
+| ${var/%pattern/string} | ${var/%n/N} => "free and opeN" |
+
+### Indirection, Listing and Length
+
+| Parameter expansion | param="parade"; parade="long"; name=(gnu not linux) |
+|---------------------|---------------------------------------------------|
+| ${!param} | long (indirect expansion, "param" holds the value "parade", so we expand the content of the variable called "parade")|
+| \$\{\!pa*} or "${!pa@}" | parade param (list names prefixing pa*)|
+| \$\{\!name[*]} or "${!name[@]}" | 0 1 2 (list keys in array)|
+| ${#param} | 6 (length)|
