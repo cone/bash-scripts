@@ -28,6 +28,10 @@ declare -p
 declare myvar=10
 # declare a "read only" variable
 declare -r myreadonlyvar=11
+# declare variable and see it's contents
+arr=(1 2 3)
+declare -p arr
+# => typeset -a arr=( 1 2 3 )
 
 # hex to decimal
 hexnum=FFF

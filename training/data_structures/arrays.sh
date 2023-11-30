@@ -21,6 +21,10 @@ echo ${arr[1]}
 echo ${arr[@]}
 # => one two three
 
+# Print all indexes
+echo ${!arr[@]}
+# => 0 1 2
+
 # Iterate all values
 for value in "${arr[@]}"
 do
@@ -39,3 +43,9 @@ echo ${arr[@]}
 arr[3]='four'
 echo ${arr[@]}
 # => one three four
+
+# Replace elements in array
+arr=("${array[@]}// /_") # replace all spaces with underscore
+
+# Recreate array with only elements from index 2 to 4
+arr=("${array[@]:2:3}")
