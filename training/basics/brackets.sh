@@ -60,13 +60,15 @@ echo $result
 
 # <(...) This is known as a process substitution. It's a lot like a pipe,
 # except you can use it anywhere a command expects a file argument.
-# And you can use multiple at once! (run with 'zsh')
+# And you can use multiple at once!
 sort -nr -k 5 <( ls -l /bin ) <( ls -l /usr/bin ) <( ls -l /sbin )
 # Behind the scenes, the <( stuff ) actually outputs the name of a 
 # temporary file (unnamed pipe file) for the sort command to use.
 echo <( ls -l /bin ) # returns something like '/dev/fd/11' which is the temporary file
 # It works the other way around too ">(command)"
-ls -l /bin >(sort -nr -k 5)
+ls -l /bin > >(sort -nr -k 5)
+# "<(...)" is knon as input redirection. ">(...)" is known as output redirection and,
+# in that case we usually use a ">" simbol before it, like: command > >(...)
 
 # Write to a file replacing all content if the file already exists
 echo "Hello" > test_file.txt
