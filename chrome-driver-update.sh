@@ -6,7 +6,7 @@ source file-system-helpers.sh
 echo 'Fetching chrome driver versions...'
 body=$(curl https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)
 links=$(echo $body | egrep -o "https://[a-z0-9\.\/-]+/[0-9\.]+/mac-x64/chromedriver-mac-x64.zip")
-allVersions=$(echo $links | sed -E "s|https://[a-z.0-9/-]*/chrome-for-testing/([0-9.]*)/mac-x64/chromedriver-mac-x64.zip|\1|")
+allVersions=$(echo $links | sed -E "s|https://[a-z.0-9/-]*/chrome-for-testing-public/([0-9.]*)/mac-x64/chromedriver-mac-x64.zip|\1|")
 majorVersions=$(echo $allVersions | sed "s/\.[0-9]*//g" | sort -u )
 
 versionsArray=()
