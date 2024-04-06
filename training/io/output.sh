@@ -2,6 +2,11 @@
 
 # Print to screen
 echo "Hello World!"
+
+# We can also use "printf" which operates the same way as printf in C, C++, and
+# Java programming languages. However we need to explicitly add a carriage return.
+printf "Hello World!\n"
+
 # Print without carriage return with the "-n" option
 echo -n "Hello "
 echo "World!"
@@ -46,3 +51,22 @@ ls +al 1>standard_output.txt 2>standard_error.txt
 # We send standard output and standard error to the same file
 ls +al >standard_output.txt 2>&1
 # same as "ls +al >& standard_output.txt"
+
+# We can change the output text color by using ANSI escape codes:
+# Black        0;30     Dark Gray     1;30
+# Red          0;31     Light Red     1;31
+# Green        0;32     Light Green   1;32
+# Brown/Orange 0;33     Yellow        1;33
+# Blue         0;34     Light Blue    1;34
+# Purple       0;35     Light Purple  1;35
+# Cyan         0;36     Light Cyan    1;36
+# Light Gray   0;37     White         1;37
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+printf "I ${RED}love${NC} Bash\n"
+echo -e "I ${RED}love${NC} Bash"
+
+# Printing dates
+NOW=$(date +"%m-%d-%Y")
+echo "$NOW"
+printf "%s\n" $NOW
